@@ -34,7 +34,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-18.06
-  FEEDS_CONF: cm520feeds.conf.default
+  FEEDS_CONF: /patches/cm520feeds.conf.default
   CONFIG_FILE: cm520.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
@@ -75,7 +75,7 @@ jobs:
 
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv cm520feeds.conf.default openwrt/feeds.conf.default
+        [ -e $FEEDS_CONF ] && mv /patches/cm520feeds.conf.default openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
