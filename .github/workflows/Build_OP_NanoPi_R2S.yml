@@ -96,8 +96,8 @@ jobs:
     - name: Build firmware
       working-directory: mnt/openwrt
       run: |
-        echo -e "$(nproc) thread build."
-        make -j$(nproc) V=s
+        echo -e "$(nproc) thread compile"
+        make -j$(nproc) || make -j1 || make -j1 V=s
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
