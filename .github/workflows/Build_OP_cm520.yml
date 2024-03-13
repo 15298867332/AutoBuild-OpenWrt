@@ -34,10 +34,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-18.06
-  FEEDS_CONF: feeds.conf/cm520feeds.conf.default
   CONFIG_FILE: cm520.config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -75,10 +72,8 @@ jobs:
 
     - name: Load custom feeds
       run: |
-        mv feeds.conf/cm520feeds.conf.default openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+        cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+        echo "src-git small8 https://github.com/kenzok8/small-package" >> ./feeds.conf.default
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -89,9 +84,8 @@ jobs:
     - name: Load custom configuration
       run: |
         mv cm520.config openwrt/.config
-        chmod +x $DIY_P2_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
+        ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -105,7 +99,7 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download -j8
+        make make download -j8 V=s
 
     - name: Compile the firmware
       id: compile
