@@ -96,9 +96,9 @@ jobs:
 
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        cd openwrt
-      ####echo "src-git-full kiddin9 https://github.com/kiddin9/openwrt-packages" >> ./feeds.conf.default
+        cd openwrt && ./scripts/feeds update -a
+
+        echo "src-git-full kiddin9 https://github.com/kiddin9/openwrt-packages" >> ./feeds.conf.default
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
