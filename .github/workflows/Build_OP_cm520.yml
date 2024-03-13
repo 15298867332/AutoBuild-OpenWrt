@@ -98,7 +98,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-        make make download -j8 V=s
+        make make download -j2
 
     - name: Compile the firmware
       id: compile
