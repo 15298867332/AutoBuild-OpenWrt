@@ -32,7 +32,7 @@ on:
 
 env:
   REPO_URL: https://github.com/x-wrt/x-wrt
-  REPO_BRANCH: master
+  REPO_BRANCH: 22.03
   FEEDS_CONF: feeds.conf/x-wrtx86feeds.conf.default
   CONFIG_FILE: x-wrtx86.config
   UPLOAD_BIN_DIR: false
