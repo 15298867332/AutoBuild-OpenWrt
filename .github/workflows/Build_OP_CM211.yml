@@ -26,6 +26,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf/cm211feeds.conf.default
   CONFIG_FILE: cm211.config
+  DIY_P1_SH: diy-part1.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
@@ -108,9 +109,10 @@ jobs:
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
-           rm -rf feeds/packages/lang/golang
-           git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+      run: 
+        chmod +x $DIY_P1_SH
+        cd openwrt && && ./scripts/feeds install -a
+        $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Load custom configuration
       run: |
