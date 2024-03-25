@@ -15,8 +15,12 @@
 #########################################################################
 #src-git small8 https://github.com/kenzok8/small-package
 ./scripts/feeds update -a && ./scripts/feeds install -a
+###go版本升级######################################################
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+##############################################################################################
 # xfsprogs
-sed -i 's/DHAVE_MAP_SYNC/DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/g' package/feeds/packages/xfsprogs/Makefile
+#sed -i 's/DHAVE_MAP_SYNC/DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/g' package/feeds/packages/xfsprogs/Makefile
 # 更改默认 Shell 为 zsh
 #sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 # TTYD 免登录
