@@ -105,7 +105,7 @@ jobs:
 
     - name: Load custom feeds
       run: cd openwrt 
-       rm -rf feeds.conf.default
+       mv feeds.conf/x-wrtx86feeds.conf.default openwrt/feeds.conf/x-wrtx86feeds.conf.default
         
 
     - name: Update feeds
