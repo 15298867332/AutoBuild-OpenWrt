@@ -27,7 +27,7 @@ on:
         default: '10'
 # 定时触发开启开始编译(把下面两个#去掉开启,时间设置请看定时开启编译说明)
   schedule:
-   - cron: '0 23 * * *'
+   - cron: '0 22 * * *'
 
 
 env:
@@ -46,7 +46,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 6000
 
     steps:
