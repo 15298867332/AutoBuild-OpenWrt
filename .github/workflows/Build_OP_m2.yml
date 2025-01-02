@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt-m2
+name: Build OpenWrt-zn_m2
 
 on:
   workflow_dispatch:
@@ -126,7 +126,7 @@ jobs:
 
     - name: Load custom configuration
       run: |
-       mv m2.config openwrt/.config
+       mv zn_m2.config openwrt/.config
        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
