@@ -34,7 +34,7 @@ env:
   REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
   REPO_BRANCH: openwrt-24.10
   FEEDS_CONF: feeds.conf/ax1800profeeds.conf.default
-  CONFIG_FILE: ax1800pro-wifi.config
+  CONFIG_FILE: ax1800prowifi.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -126,7 +126,7 @@ jobs:
 
     - name: Load custom configuration
       run: |
-       mv ax1800pro-wifi.config openwrt/.config
+       mv ax1800prowifi.config openwrt/.config
        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
