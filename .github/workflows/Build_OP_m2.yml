@@ -34,7 +34,7 @@ env:
   REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
   REPO_BRANCH: openwrt-24.10
   FEEDS_CONF: feeds.conf/m2feeds.conf.default
-  CONFIG_FILE: m2.config
+  CONFIG_FILE: zn_m2.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
