@@ -1,0 +1,12 @@
+##源码https://github.com/breeze303/openwrt-ci/releases
+##这是带WIFI，带NSS的6.6内核固件
+##💻 这是 IPQ60XX-24.10 平台使用的 OpenWrt 固件
+##⚽ 固件源码: https://github.com/LiBwrt/openwrt-6.x.git
+##💝 源码分支: openwrt-24.10
+src-git packages https://github.com/immortalwrt/packages.git;openwrt-24.10
+src-git luci https://github.com/immortalwrt/luci.git;openwrt-24.10
+src-git routing https://github.com/openwrt/routing.git;openwrt-24.10
+src-git telephony https://github.com/openwrt/telephony.git;openwrt-24.10
+src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.5-K6.x
+src-git sqm_scripts_nss https://github.com/qosmio/sqm-scripts-nss.git
+src-git smpackage https://github.com/kenzok8/small-package
