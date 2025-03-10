@@ -118,6 +118,7 @@ jobs:
       run: |
         cd openwrt
         echo "src-git opentopd  https://github.com/sirpdboy/sirpdboy-package" >> ./feeds.conf.default
+        sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
         ./scripts/feeds update -a && ./scripts/feeds install -a
     #- name: Install feeds1
       #run: cd openwrt && rm -rf feeds/packages/lang/golang
