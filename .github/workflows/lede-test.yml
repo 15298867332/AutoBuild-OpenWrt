@@ -119,10 +119,9 @@ jobs:
         cd openwrt
         echo "src-git small8 https://github.com/kenzok8/small-package" >> ./feeds.conf.default
         ./scripts/feeds update -a && ./scripts/feeds install -a
+        sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
     - name: Install feeds1
       run: cd openwrt && rm -rf feeds/packages/lang/golang
-        sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
-        ./scripts/feeds update -a && ./scripts/feeds install -a
     - name: Install feeds2
       run: cd openwrt && git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
