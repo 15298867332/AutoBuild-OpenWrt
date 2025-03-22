@@ -31,8 +31,8 @@ on:
 
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/LiBwrt/openwrt-6.x
+  REPO_BRANCH: kernel-6.12
   ##FEEDS_CONF: feeds.conf/ledex86feeds.conf.default
   CONFIG_FILE: test.config
   DIY_P1_SH: diy-part1.sh
@@ -122,7 +122,7 @@ jobs:
     - name: Install feeds1
       run: cd openwrt && rm -rf feeds/packages/lang/golang
     - name: Install feeds2
-      run: cd openwrt && git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+      run: cd openwrt && git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
     - name: Load custom configuration
       run: |
